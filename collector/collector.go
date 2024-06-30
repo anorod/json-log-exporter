@@ -3,7 +3,7 @@ package collector
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/ashwinikd/json-log-exporter/config"
+	"github.com/anorod/json-log-exporter/config"
 	"github.com/hpcloud/tail"
 	"github.com/prometheus/client_golang/prometheus"
 	"log"

@@ -4,3 +4,5 @@
 *.idx
 bin
 json-log-exporter
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
