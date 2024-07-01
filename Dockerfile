@@ -8,8 +8,9 @@ WORKDIR /app
 COPY . .
 
 # Compila el binario
-RUN go mod tidy
-RUN go build -o /json-log-exporter .
+#RUN go mod tidy
+#RUN go build -o /json-log-exporter .
+RUN install github.com/anorod/json-log-exporter@latest
 
 # Usa una imagen base mínima de Alpine para la imagen final
 FROM alpine:latest
