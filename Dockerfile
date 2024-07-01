@@ -28,4 +28,4 @@ VOLUME /tmp/log
 EXPOSE 9321
 
 # Establece el comando por defecto para ejecutar el contenedor
-CMD ["./json-log-exporter", "-config-file", "/etc/json-log-exporter/config.yml"]
+CMD ["json-log-exporter", "-config-file", "/etc/json-log-exporter/config.yml"]
