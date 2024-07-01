@@ -9,7 +9,7 @@ COPY . .
 
 # Compila el binario
 RUN go mod tidy
-RUN go build -o /json-log-export json-log-exporter
+RUN go build -o /json-log-export .
 #RUN go install github.com/anorod/json-log-exporter@latest
 
 # Usa una imagen base mínima de Alpine para la imagen final
