@@ -9,16 +9,17 @@ WORKDIR /app
 COPY . .
 
 # Compila el binario
-RUN go mod tidy
-RUN go mod download
-RUN go build -o /json-log-exporter
+#RUN go mod tidy
+#RUN go mod download
+#RUN go build -o /json-log-exporter
 #RUN go install github.com/anorod/json-log-exporter@latest
+RUN go install json-log-exporter
 
 # Usa una imagen base mínima de Alpine para la imagen final
-FROM alpine:latest
+#FROM alpine:latest
 
 # Copia el binario compilado desde el contenedor builder
-COPY --from=builder /json-log-exporter /usr/local/bin/json-log-exporter
+#COPY --from=builder /json-log-exporter /usr/local/bin/json-log-exporter
 
 # Exponer el fichero de configuración
 VOLUME /etc/json-log-exporter
