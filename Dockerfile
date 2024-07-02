@@ -1,6 +1,6 @@
 # Usa una imagen base de Go
 #FROM golang:1.23rc1 as builder
-FROM golang:1.19 as builder
+FROM golang:1.21 as builder
 
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
