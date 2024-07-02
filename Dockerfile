@@ -1,5 +1,6 @@
 # Usa una imagen base de Go
-FROM golang:1.23rc1 as builder
+#FROM golang:1.23rc1 as builder
+FROM golang:1.19 as builder
 
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
@@ -9,14 +10,15 @@ COPY . .
 
 # Compila el binario
 RUN go mod tidy
-RUN go build -o /json-log-export .
+RUN go mod download
+RUN go build -o /json-log-exporter
 #RUN go install github.com/anorod/json-log-exporter@latest
 
 # Usa una imagen base mínima de Alpine para la imagen final
 FROM alpine:latest
 
 # Copia el binario compilado desde el contenedor builder
-COPY --from=builder /json-log-export /usr/local/bin/json-log-exporter
+COPY --from=builder /json-log-exporter /usr/local/bin/json-log-exporter
 
 # Exponer el fichero de configuración
 VOLUME /etc/json-log-exporter
