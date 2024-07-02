@@ -14,6 +14,9 @@ RUN go install github.com/anorod/json-log-exporter@latest
 # Usa una imagen base mínima de Alpine para la imagen final
 FROM alpine:latest
 
+# Para que funcione en Alpine
+RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
+
 # Copia el binario compilado desde el contenedor builder
 COPY --from=builder /go/bin/json-log-exporter /usr/local/bin/json-log-exporter
 
